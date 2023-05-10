@@ -49,7 +49,7 @@ export const Provider = ({ children }) => {
       getTodo,
       deleteTodo,
       filterTodo,
-      filterTodoList
+      filterTodoList,
    };
 
    return <context.Provider value={providerValue}>{children}</context.Provider>;

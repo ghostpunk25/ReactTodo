@@ -37,40 +37,40 @@ export const WorkSpace = ({ open }) => {
             }}>
             {ctx.todo?.created ?? null}
          </Typography>
-         {
-            ctx.workSpaceActive
-               ? <form>
-                  <Box component='textarea' name="textarea" value={text ?? ''}
-                     onChange={e => setText(e.target.value)}
-                     sx={{
-                        width: '100%',
-                        height: '70vh',
-                        resize: 'vertical',
-                        border: 'none',
-                        outline: 'none',
-                        fontSize: '18px',
-                     }}></Box>
-                  <Button onClick={handleEditTodo} variant="contained"
-                     sx={{
-                        display: 'flex',
-                        ml: 'auto'
-                     }}>
-                     Save
-                  </Button>
-               </form>
-               : <form >
-                  <Box disabled component='textarea' name="textarea" value={text ?? ''}
-                     sx={{
-                        width: '100%',
-                        height: '80vh',
-                        resize: 'vertical',
-                        border: 'none',
-                        outline: 'none',
-                        background: 'none',
-                        fontSize: '18px',
-                     }}>
-                  </Box>
-               </form>
+         {ctx.workSpaceActive
+            ? <Box>
+               <Box component='textarea' name="textarea" value={text ?? ''}
+                  placeholder='New note...'
+                  onChange={e => setText(e.target.value)}
+                  sx={{
+                     width: '100%',
+                     height: '70vh',
+                     resize: 'vertical',
+                     border: 'none',
+                     outline: 'none',
+                     fontSize: '18px',
+                     mb: '5px'
+                  }}></Box>
+               <Button onClick={handleEditTodo} variant="contained"
+                  sx={{
+                     display: 'flex',
+                     ml: 'auto'
+                  }}>
+                  Save
+               </Button>
+            </Box>
+            : <Box disabled component='textarea' name="textarea" value={text ?? ''}
+               placeholder='Emty note...'
+               sx={{
+                  width: '100%',
+                  height: '80vh',
+                  resize: 'vertical',
+                  border: 'none',
+                  outline: 'none',
+                  background: 'none',
+                  fontSize: '18px',
+               }}>
+            </Box>
          }
       </Main >
    )

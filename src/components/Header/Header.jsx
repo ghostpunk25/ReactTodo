@@ -54,7 +54,6 @@ export const Header = ({ handleDrawerOpen, open, handleAddTodo, handleRemoveTodo
                </IconButton>
                <IconButton
                   disabled={!ctx.todo}
-                  // onClick={handleRemoveTodo}
                   onClick={handleClickOpen}
                   color="inherit"
                   aria-label="open drawer"

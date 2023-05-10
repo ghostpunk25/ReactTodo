@@ -9,6 +9,7 @@ import { getAllTodos } from 'services/indexedDB';
 import { addTodo } from 'services/indexedDB';
 import { removeTodo } from 'services/indexedDB';
 import { formattedDate } from 'services/indexedDB';
+import { nanoid } from 'nanoid'
 
 export const drawerWidth = 240;
 
@@ -24,7 +25,7 @@ export const App = () => {
   const handleAddTodo = () => {
 
     const todoDefault = {
-      id: Math.random(),
+      id: nanoid(10),
       text: '',
       created: formattedDate
     };
