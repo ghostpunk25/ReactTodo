@@ -21,10 +21,6 @@ export const App = () => {
     getAllTodos(ctx.getTodosList)
   }, [])
 
-  // useEffect(() => {
-
-  // }, [ctx.todosList])
-
   const handleAddTodo = () => {
 
     const todoDefault = {
@@ -35,7 +31,7 @@ export const App = () => {
 
     addTodo(todoDefault)
     ctx.getTodo(todoDefault)
-    ctx.handleWorkSpaceActive()
+    ctx.handleWorkSpaceActive(true)
   }
 
   const handleRemoveTodo = () => {

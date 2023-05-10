@@ -36,8 +36,8 @@ export const Provider = ({ children }) => {
       setTodosList(todos);
    };
 
-   const handleWorkSpaceActive = () => {
-      setWorkSpaceActive(prevState => !prevState);
+   const handleWorkSpaceActive = (bool) => {
+      setWorkSpaceActive(bool);
    };
 
    const providerValue = {
