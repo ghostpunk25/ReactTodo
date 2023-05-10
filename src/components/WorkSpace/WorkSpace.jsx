@@ -32,7 +32,7 @@ export const WorkSpace = ({ open }) => {
             sx={{
                textAlign: 'center',
                background: '#ccc',
-               py: '5px',
+               p: '5px',
                borderRadius: '20px',
                mb: '10px'
             }}>

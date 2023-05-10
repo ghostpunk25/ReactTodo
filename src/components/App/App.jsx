@@ -10,12 +10,22 @@ import { addTodo } from 'services/indexedDB';
 import { removeTodo } from 'services/indexedDB';
 import { formattedDate } from 'services/indexedDB';
 import { nanoid } from 'nanoid'
+import { useWindowSize } from 'hooks/useWindowSize';
 
 export const drawerWidth = 240;
 
 export const App = () => {
   const [open, setOpen] = useState(true);
   const ctx = useContext(context);
+  const windowSize = useWindowSize();
+
+  useEffect(() => {
+    if (windowSize.width <= 450) {
+      setOpen(false);
+    } else {
+      setOpen(true);
+    }
+  }, [windowSize.width]);
 
   useEffect(() => {
     createIndexedDB()
