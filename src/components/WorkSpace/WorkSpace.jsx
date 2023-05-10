@@ -1,12 +1,13 @@
-import { Button, Box, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { addTodo } from 'services/indexedDB';
 import { context } from 'context/context';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { Main, DrawerHeader } from './WorkSpace.style';
 
 export const WorkSpace = ({ open }) => {
    const ctx = useContext(context);
    const [text, setText] = useState('');
+   const textArea = useRef(null)
 
    const handleEditTodo = () => {
       ctx.handleWorkSpaceActive(false)
@@ -39,9 +40,10 @@ export const WorkSpace = ({ open }) => {
          </Typography>
          {ctx.workSpaceActive
             ? <Box>
-               <Box component='textarea' name="textarea" value={text ?? ''}
+               <Box ref={textArea} component='textarea' name="textarea" value={text ?? ''}
                   placeholder='New note...'
                   onChange={e => setText(e.target.value)}
+                  onBlur={handleEditTodo}
                   sx={{
                      width: '100%',
                      height: '70vh',
@@ -50,14 +52,8 @@ export const WorkSpace = ({ open }) => {
                      outline: 'none',
                      fontSize: '18px',
                      mb: '5px'
-                  }}></Box>
-               <Button onClick={handleEditTodo} variant="contained"
-                  sx={{
-                     display: 'flex',
-                     ml: 'auto'
                   }}>
-                  Save
-               </Button>
+               </Box>
             </Box>
             : <Box disabled component='textarea' name="textarea" value={text ?? ''}
                placeholder='Emty note...'
