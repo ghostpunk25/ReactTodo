@@ -46,8 +46,8 @@ export const WorkSpace = ({ open }) => {
                   onBlur={handleEditTodo}
                   sx={{
                      width: '100%',
-                     height: '70vh',
-                     resize: 'vertical',
+                     height: '80vh',
+                     resize: 'none',
                      border: 'none',
                      outline: 'none',
                      fontSize: '18px',
@@ -60,7 +60,7 @@ export const WorkSpace = ({ open }) => {
                sx={{
                   width: '100%',
                   height: '80vh',
-                  resize: 'vertical',
+                  resize: 'none',
                   border: 'none',
                   outline: 'none',
                   background: 'none',
